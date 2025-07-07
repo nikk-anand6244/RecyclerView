@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="name"
+        android:inputType="textPersonName"
+        android:layout_margin="20dp"
+
+        />
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="About"
+        android:inputType="text"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/et1"
+        />
+
+    <EditText
+        android:id="@+id/et3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Des"
+        android:inputType="text"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/et2"
+        />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et3"
+        android:text="Save"
+        android:layout_margin="10dp"
+        />
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSave"
+        android:text="Cancle"
+        android:layout_margin="10dp"
+
+        />
+
+
+
+</RelativeLayout>

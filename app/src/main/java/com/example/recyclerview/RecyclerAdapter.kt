@@ -7,17 +7,21 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter(var list: ArrayList<ListData>):
+class RecyclerAdapter(private var list: ArrayList<ListData>, var clickInterface: OnClickInterface):
+
     RecyclerView.Adapter<RecyclerAdapter.Viewholder>(){
-    class Viewholder( view : View):RecyclerView.ViewHolder(view) {
+    class Viewholder( var view : View):RecyclerView.ViewHolder(view) {
 
         var name=view.findViewById<TextView>(R.id.tv1)
+        var about=view.findViewById<TextView>(R.id.tv2)
+        var des=view.findViewById<TextView>(R.id.tv3)
         var update=view.findViewById<Button>(R.id.btnUpdate)
         var delete=view.findViewById<Button>(R.id.btnDelete)
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.Viewholder{
         var view= LayoutInflater.from(parent.context).inflate(R.layout.itemlayout,parent,false)
         return Viewholder(view)
     }
@@ -26,14 +30,18 @@ class RecyclerAdapter(var list: ArrayList<ListData>):
             return list.size
     }
 
-    override fun onBindViewHolder(holder: Viewholder, position: Int) {
+    override fun onBindViewHolder(holder:RecyclerAdapter.Viewholder, position: Int) {
 
         holder.apply {
-            name.setText(list[position].title)
+            name.setText(list[position].id)
+            about.setText(list[position].title)
+            des.setText(list[position].description)
             update.setOnClickListener {
+               clickInterface.update(position)
 
             }
             delete.setOnClickListener {
+                clickInterface.delete(position)
 
             }
 
@@ -43,6 +51,17 @@ class RecyclerAdapter(var list: ArrayList<ListData>):
     }
 
 
+    interface OnClickInterface {
+        fun update(position: Int)
+        fun delete(position: Int)
+    }
+
+
 }
+
+
+
+
+
 
 

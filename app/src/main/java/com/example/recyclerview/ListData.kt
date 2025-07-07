@@ -1,7 +1,7 @@
 package com.example.recyclerview
 
 data class ListData(
-    var id : Int=0,
+    var id : String?=null,
     var title: String?=null,
     var description: String?=null,
 )
