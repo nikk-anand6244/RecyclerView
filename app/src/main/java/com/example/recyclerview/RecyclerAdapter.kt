@@ -33,7 +33,7 @@ class RecyclerAdapter(private var list: ArrayList<ListData>, var clickInterface:
     override fun onBindViewHolder(holder:RecyclerAdapter.Viewholder, position: Int) {
 
         holder.apply {
-            name.setText(list[position].id)
+            name.setText(list[position].about)
             about.setText(list[position].title)
             des.setText(list[position].description)
             update.setOnClickListener {
